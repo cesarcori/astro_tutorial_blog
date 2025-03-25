@@ -1,0 +1,28 @@
+---
+const platforms = {
+  linkedin: {
+    name: "LinkedIn",
+    baseName: "linkedin",
+    username: "julio-cesar-cori-ochoa-50ab2bbb",
+  },
+  github: {
+    name: "GitHub",
+    baseName: "github",
+    username: "cesarcori",
+  },
+};
+---
+
+<footer>
+  <p>
+    Learn more about my projects on
+    <a
+      href={`https://www.${platforms.github.name}.com/${platforms.github.username}`}
+      >{platforms.github.name}</a
+    >
+    <a
+      href={`https://www.${platforms.linkedin.name}.com/in/${platforms.linkedin.username}`}
+      >{platforms.linkedin.name}</a
+    >
+  </p>
+</footer>
