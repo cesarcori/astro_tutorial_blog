@@ -1,28 +1,24 @@
 ---
-const platforms = {
-  linkedin: {
-    name: "LinkedIn",
-    baseName: "linkedin",
-    username: "julio-cesar-cori-ochoa-50ab2bbb",
-  },
-  github: {
-    name: "GitHub",
-    baseName: "github",
-    username: "cesarcori",
-  },
-};
+import Social from "./Social.astro";
 ---
+
+<style>
+  footer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
 
 <footer>
   <p>
     Learn more about my projects on
-    <a
-      href={`https://www.${platforms.github.name}.com/${platforms.github.username}`}
-      >{platforms.github.name}</a
-    >
-    <a
-      href={`https://www.${platforms.linkedin.name}.com/in/${platforms.linkedin.username}`}
-      >{platforms.linkedin.name}</a
-    >
+    <Social platform="x" username="jcesarcori" />
+    <Social platform="github" username="cesarcori" />
+    <Social platform="youtube" username="@raisingcode" />
+    <Social
+      platform="linkedin"
+      username="in/julio-cesar-cori-ochoa-50ab2bbb/"
+    />
   </p>
 </footer>
