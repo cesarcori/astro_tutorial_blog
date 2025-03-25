@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import "../styles/global.css";
 
+import BaseLayout from "../layouts/BaseLayout.astro";
+
 const pageTitle = "About Me JoJo";
 
 const identity = {
@@ -23,7 +25,7 @@ const fontWight = "normal";
 const textCase = "uppercase";
 ---
 
-<html lang="en">
+<!-- <html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -83,4 +85,49 @@ const textCase = "uppercase";
       import "../scripts/menu.js";
     </script>
   </body>
-</html>
+</html> -->
+<BaseLayout pageTitle={pageTitle}>
+  <h2>This is a new page from about</h2>
+
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>
+      I live in {identity.country} and I work as a {identity.occupation}.
+    </li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li class="skill">{skill}</li>)}
+  </ul>
+
+  {happy && <p>I am happy to be learning Astro!</p>}
+
+  {finished && <p>I finished this tutorial!</p>}
+
+  {
+    goal === 3 ? (
+      <p>My goal is to finish in 3 days.</p>
+    ) : (
+      <p>My goal is not 3 days.</p>
+    )
+  }
+  <style is:global define:vars={{ skillColor, fontWight, textCase }}>
+    h1 {
+      color: purple;
+      font-size: 4rem;
+    }
+    .skill {
+      color: var(--skillColor);
+      font-weight: var(--fontWight);
+      text-transform: var(--textCase);
+    }
+  </style>
+</BaseLayout>
