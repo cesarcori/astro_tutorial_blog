@@ -15,9 +15,7 @@ const pageTitle = "My Astro learning blog";
   <ul>
     {
       allPosts.map((post: any) => (
-        <li>
-          <BlogPost url={post.url} title={post.frontmatter.title} />
-        </li>
+        <BlogPost url={post.url} title={post.frontmatter.title} />
       ))
     }
   </ul>
