@@ -1,14 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/global.css";
+import BlogPost from "../components/BlogPost.astro";
 
-console.log("hola");
+import "../styles/global.css";
 
 const allPosts = Object.values(
   import.meta.glob("./posts/*.md", { eager: true }),
 );
-console.log("all posts", allPosts);
-console.log("url", allPosts[0].frontmatter);
 const pageTitle = "My Astro learning blog";
 ---
 
@@ -18,7 +16,7 @@ const pageTitle = "My Astro learning blog";
     {
       allPosts.map((post: any) => (
         <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
+          <BlogPost url={post.url} title={post.frontmatter.title} />
         </li>
       ))
     }
